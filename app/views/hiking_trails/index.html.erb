@@ -22,8 +22,20 @@
         <td><%= hiking_trail.address %></td>
         <td><%= hiking_trail.distance %></td>
         <td><%= hiking_trail.difficulty %></td>
-        <td><%= hiking_trail.park.state_id %></td>
-        <td><%= hiking_trail.review.review_content %></td>
+        <td>
+          <% if hiking_trail.park.present? %>
+            <a href="/parks/<%= hiking_trail.park.id %>">
+              <%= hiking_trail.park.state_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if hiking_trail.review.present? %>
+            <a href="/hiking_reviews/<%= hiking_trail.review.id %>">
+              <%= hiking_trail.review.review_content %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/hiking_trails/<%= hiking_trail.id %>" class="btn btn-primary">Show</a>
           <a href="/hiking_trails/<%= hiking_trail.id %>/edit" class="btn btn-warning">Edit</a>

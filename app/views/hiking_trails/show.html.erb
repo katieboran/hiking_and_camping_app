@@ -19,10 +19,22 @@
       <dd><%= @hiking_trail.difficulty %></dd>
 
       <dt>Park</dt>
-      <dd><%= @hiking_trail.park_id %></dd>
+      <dd>
+        <% if @hiking_trail.park.present? %>
+          <a href="/parks/<%= @hiking_trail.park_id %>">
+            <%= @hiking_trail.park.state_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Review</dt>
-      <dd><%= @hiking_trail.review_id %></dd>
+      <dd>
+        <% if @hiking_trail.review.present? %>
+          <a href="/hiking_reviews/<%= @hiking_trail.review_id %>">
+            <%= @hiking_trail.review.review_content %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Capacity</dt>
-      <dd><%= @camping_site.capacity %></dd>
+      <dd>
+        <% if @camping_site.camping_review.present? %>
+          <a href="/camping_reviews/<%= @camping_site.capacity %>">
+            <%= @camping_site.camping_review.review_content %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Review</dt>
-      <dd><%= @camping_site.review_id %></dd>
+      <dd>
+        <% if @camping_site.park.present? %>
+          <a href="/parks/<%= @camping_site.review_id %>">
+            <%= @camping_site.park.state_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Park</dt>
       <dd><%= @camping_site.park_id %></dd>

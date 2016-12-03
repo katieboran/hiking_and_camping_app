@@ -9,7 +9,13 @@
       <dd><%= @camping_review.review_content %></dd>
 
       <dt>User</dt>
-      <dd><%= @camping_review.user_id %></dd>
+      <dd>
+        <% if @camping_review.user.present? %>
+          <a href="/users/<%= @camping_review.user_id %>">
+            <%= @camping_review.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Star rating</dt>
       <dd><%= @camping_review.star_rating %></dd>
