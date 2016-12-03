@@ -63,6 +63,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_hiking_trail" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for distance -->
+      <div class="form-group">
+        <label for="distance" class="control-label">
+          Distance
+        </label>
+
+        <input type="text" id="distance" name="distance" placeholder="Distance" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for difficulty -->
+      <div class="form-group">
+        <label for="difficulty" class="control-label">
+          Difficulty
+        </label>
+
+        <input type="text" id="difficulty" name="difficulty" placeholder="Difficulty" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for park_id -->
+      <input type="hidden" name="park_id" value="<%= @park.id %>">
+
+      <!-- Label and input for review_id -->
+      <div class="form-group">
+        <label for="review_id" class="control-label">
+          Review
+        </label>
+
+        <%= select_tag(:review_id, options_from_collection_for_select(HikingReview.all, :id, :review_content), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Hiking Trail
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -94,6 +144,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_camping_site" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for capacity -->
+      <div class="form-group">
+        <label for="capacity" class="control-label">
+          Capacity
+        </label>
+
+        <%= select_tag(:capacity, options_from_collection_for_select(CampingReview.all, :id, :review_content, @camping_site.capacity), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for review_id -->
+      <div class="form-group">
+        <label for="review_id" class="control-label">
+          Review
+        </label>
+
+        <%= select_tag(:review_id, options_from_collection_for_select(Park.all, :id, :state_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for park_id -->
+      <div class="form-group">
+        <label for="park_id" class="control-label">
+          Park
+        </label>
+
+        <input type="text" id="park_id" name="park_id" placeholder="Park" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Camping Site
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

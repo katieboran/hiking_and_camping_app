@@ -48,6 +48,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_park" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for state_id -->
+      <input type="hidden" name="state_id" value="<%= @state.id %>">
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for dates_of_operation -->
+      <div class="form-group">
+        <label for="dates_of_operation" class="control-label">
+          Dates of operation
+        </label>
+
+        <input type="text" id="dates_of_operation" name="dates_of_operation" placeholder="Dates of operation" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="file" id="image" name="image" class="form-control">
+      </div>
+
+      <!-- Label and input for activities -->
+      <div class="form-group">
+        <label for="activities" class="control-label">
+          Activities
+        </label>
+
+        <input type="text" id="activities" name="activities" placeholder="Activities" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Park
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

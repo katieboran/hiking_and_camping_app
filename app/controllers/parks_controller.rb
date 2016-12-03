@@ -6,6 +6,8 @@ class ParksController < ApplicationController
   end
 
   def show
+    @camping_site = CampingSite.new
+    @hiking_trail = HikingTrail.new
     @park = Park.find(params[:id])
 
     render("parks/show.html.erb")
