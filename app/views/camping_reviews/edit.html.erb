@@ -27,14 +27,8 @@
         <input type="text" id="review_content" name="review_content" placeholder="Review content" class="form-control" value="<%= @camping_review.review_content %>">
       </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email, @camping_review.user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <!-- Label and input for star_rating -->
       <div class="form-group">
