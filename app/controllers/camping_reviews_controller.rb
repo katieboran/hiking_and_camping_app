@@ -10,7 +10,7 @@ class CampingReviewsController < ApplicationController
   end
 
   def index
-    @camping_reviews = CampingReview.all
+    @camping_reviews = CampingReview.page(params[:page]).per(10)
 
     render("camping_reviews/index.html.erb")
   end

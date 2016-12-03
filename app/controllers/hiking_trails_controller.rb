@@ -1,6 +1,6 @@
 class HikingTrailsController < ApplicationController
   def index
-    @hiking_trails = HikingTrail.all
+    @hiking_trails = HikingTrail.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@hiking_trails.where.not(:address_latitude => nil)) do |hiking_trail, marker|
       marker.lat hiking_trail.address_latitude
       marker.lng hiking_trail.address_longitude
