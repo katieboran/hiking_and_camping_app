@@ -22,8 +22,11 @@
         <td><%= camping_review.star_rating %></td>
         <td>
           <a href="/camping_reviews/<%= camping_review.id %>" class="btn btn-primary">Show</a>
-          <a href="/camping_reviews/<%= camping_review.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_camping_review/<%= camping_review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == camping_review.user %>
+            <a href="/camping_reviews/<%= camping_review.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_camping_review/<%= camping_review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

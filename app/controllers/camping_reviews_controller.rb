@@ -1,4 +1,14 @@
 class CampingReviewsController < ApplicationController
+  before_action :current_user_must_be_camping_review_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_camping_review_user
+    camping_review = CampingReview.find(params[:id])
+
+    unless current_user == camping_review.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @camping_reviews = CampingReview.all
 
