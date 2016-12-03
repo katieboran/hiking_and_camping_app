@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "states#index"
   # Routes for the Camping_review resource:
   # CREATE
   get "/camping_reviews/new", :controller => "camping_reviews", :action => "new"
