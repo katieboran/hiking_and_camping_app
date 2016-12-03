@@ -1,6 +1,7 @@
 class CampingSitesController < ApplicationController
   def index
-    @camping_sites = CampingSite.page(params[:page]).per(10)
+    @q = CampingSite.ransack(params[:q])
+    @camping_sites = @q.result(:distinct => true).includes(:park, :camping_review).page(params[:page]).per(10)
 
     render("camping_sites/index.html.erb")
   end

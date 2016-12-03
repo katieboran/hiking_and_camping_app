@@ -10,7 +10,8 @@ class HikingReviewsController < ApplicationController
   end
 
   def index
-    @hiking_reviews = HikingReview.page(params[:page]).per(10)
+    @q = HikingReview.ransack(params[:q])
+    @hiking_reviews = @q.result(:distinct => true).includes(:user, :hiking_trail).page(params[:page]).per(10)
 
     render("hiking_reviews/index.html.erb")
   end

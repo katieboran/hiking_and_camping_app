@@ -1,6 +1,7 @@
 class ParksController < ApplicationController
   def index
-    @parks = Park.page(params[:page]).per(10)
+    @q = Park.ransack(params[:q])
+    @parks = @q.result(:distinct => true).includes(:state, :hiking_trails, :camping_sites).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@parks.where.not(:address_latitude => nil)) do |park, marker|
       marker.lat park.address_latitude
       marker.lng park.address_longitude

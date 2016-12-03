@@ -3,6 +3,196 @@
     Parks
     <a href="/parks/new" class="btn btn-lg btn-success">New Park</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => "collapse", :id => "parks_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :activities_cont, "Activities contains" %>
+    <%= f.text_field :activities_cont, :class => "form-control", :placeholder => "Activities contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :dates_of_operation, "Dates of operation" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='dates_of_operationgteqPicker'>
+                  <%= f.text_field :dates_of_operation_gteq, :class => "form-control", :placeholder => "Dates of operation greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='dates_of_operationlteqPicker'>
+                  <%= f.text_field :dates_of_operation_lteq, :class => "form-control", :placeholder => "Dates of operation less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#dates_of_operationgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#dates_of_operationlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#dates_of_operationgteqPicker').on("dp.change", function (e) {
+                  $('#dates_of_operationlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#dates_of_operationlteqPicker').on("dp.change", function (e) {
+                  $('#dates_of_operationgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+          <%= f.label :created_at, "State Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='stategteqcreated_atPicker'>
+                  <%= f.text_field :state_created_at_gteq, :class => "form-control", :placeholder => "State Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='statelteqcreated_atPicker'>
+                  <%= f.text_field :state_created_at_lteq, :class => "form-control", :placeholder => "State Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#stategteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#statelteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#stategteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#statelteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#statelteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#stategteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "HikingTrail Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='hiking_trailsgteqcreated_atPicker'>
+                  <%= f.text_field :hiking_trails_created_at_gteq, :class => "form-control", :placeholder => "HikingTrail Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='hiking_trailslteqcreated_atPicker'>
+                  <%= f.text_field :hiking_trails_created_at_lteq, :class => "form-control", :placeholder => "HikingTrail Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#hiking_trailsgteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#hiking_trailslteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#hiking_trailsgteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#hiking_trailslteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#hiking_trailslteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#hiking_trailsgteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+  <%= f.label :park_id, "CampingSite Park" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :camping_sites_park_id_gteq, :class => "form-control", :placeholder => "CampingSite Park greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :camping_sites_park_id_lteq, :class => "form-control", :placeholder => "CampingSite Park less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/parks" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#parks_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 
