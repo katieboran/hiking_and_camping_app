@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @camping_site.errors.any? %>
+  <% @camping_site.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Camping Site</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_camping_site" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for capacity -->
+      <div class="form-group">
+        <label for="capacity" class="control-label">
+          Capacity
+        </label>
+
+        <input type="text" id="capacity" name="capacity" placeholder="Capacity" class="form-control" value="<%= @camping_site.capacity %>">
+      </div>
+
+      <!-- Label and input for review_id -->
+      <div class="form-group">
+        <label for="review_id" class="control-label">
+          Review
+        </label>
+
+        <input type="text" id="review_id" name="review_id" placeholder="Review" class="form-control" value="<%= @camping_site.review_id %>">
+      </div>
+
+      <!-- Label and input for park_id -->
+      <div class="form-group">
+        <label for="park_id" class="control-label">
+          Park
+        </label>
+
+        <input type="text" id="park_id" name="park_id" placeholder="Park" class="form-control" value="<%= @camping_site.park_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Camping Site
+      </button>
+      or
+      <a href="/camping_sites">Cancel</a>
+    </form>
+  </div>
+</div>

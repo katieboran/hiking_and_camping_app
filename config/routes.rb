@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Camping_site resource:
+  # CREATE
+  get "/camping_sites/new", :controller => "camping_sites", :action => "new"
+  post "/create_camping_site", :controller => "camping_sites", :action => "create"
+
+  # READ
+  get "/camping_sites", :controller => "camping_sites", :action => "index"
+  get "/camping_sites/:id", :controller => "camping_sites", :action => "show"
+
+  # UPDATE
+  get "/camping_sites/:id/edit", :controller => "camping_sites", :action => "edit"
+  post "/update_camping_site/:id", :controller => "camping_sites", :action => "update"
+
+  # DELETE
+  get "/delete_camping_site/:id", :controller => "camping_sites", :action => "destroy"
+  #------------------------------
+
   # Routes for the Park resource:
   # CREATE
   get "/parks/new", :controller => "parks", :action => "new"

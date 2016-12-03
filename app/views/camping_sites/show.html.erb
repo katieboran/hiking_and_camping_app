@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Camping Site #<%= @camping_site.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Capacity</dt>
+      <dd><%= @camping_site.capacity %></dd>
+
+      <dt>Review</dt>
+      <dd><%= @camping_site.review_id %></dd>
+
+      <dt>Park</dt>
+      <dd><%= @camping_site.park_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/camping_sites" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/camping_sites/<%= @camping_site.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_camping_site/<%= @camping_site.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
