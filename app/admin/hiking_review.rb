@@ -1,5 +1,7 @@
 ActiveAdmin.register HikingReview do
 
+ permit_params :review_content, :user_id, :star_rating
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
