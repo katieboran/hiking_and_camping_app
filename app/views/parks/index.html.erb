@@ -19,7 +19,7 @@
 
       <% @parks.each do |park| %>
       <tr>
-        <td><%= park.state_id %></td>
+        <td><%= park.state.created_at %></td>
         <td><%= park.address %></td>
         <td><%= park.dates_of_operation %></td>
         <td><%= park.image %></td>
