@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Hiking Trail #<%= @hiking_trail.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Address</dt>
+      <dd><%= @hiking_trail.address %></dd>
+
+      <dt>Distance</dt>
+      <dd><%= @hiking_trail.distance %></dd>
+
+      <dt>Difficulty</dt>
+      <dd><%= @hiking_trail.difficulty %></dd>
+
+      <dt>Park</dt>
+      <dd><%= @hiking_trail.park_id %></dd>
+
+      <dt>Review</dt>
+      <dd><%= @hiking_trail.review_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/hiking_trails" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/hiking_trails/<%= @hiking_trail.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_hiking_trail/<%= @hiking_trail.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

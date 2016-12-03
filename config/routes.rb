@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Hiking_trail resource:
+  # CREATE
+  get "/hiking_trails/new", :controller => "hiking_trails", :action => "new"
+  post "/create_hiking_trail", :controller => "hiking_trails", :action => "create"
+
+  # READ
+  get "/hiking_trails", :controller => "hiking_trails", :action => "index"
+  get "/hiking_trails/:id", :controller => "hiking_trails", :action => "show"
+
+  # UPDATE
+  get "/hiking_trails/:id/edit", :controller => "hiking_trails", :action => "edit"
+  post "/update_hiking_trail/:id", :controller => "hiking_trails", :action => "update"
+
+  # DELETE
+  get "/delete_hiking_trail/:id", :controller => "hiking_trails", :action => "destroy"
+  #------------------------------
+
   # Routes for the State resource:
   # CREATE
   get "/states/new", :controller => "states", :action => "new"

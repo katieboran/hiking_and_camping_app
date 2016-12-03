@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @hiking_trail.errors.any? %>
+  <% @hiking_trail.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Hiking Trail #<%= @hiking_trail.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_hiking_trail/<%= @hiking_trail.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @hiking_trail.address %>">
+      </div>
+
+      <!-- Label and input for distance -->
+      <div class="form-group">
+        <label for="distance" class="control-label">
+          Distance
+        </label>
+
+        <input type="text" id="distance" name="distance" placeholder="Distance" class="form-control" value="<%= @hiking_trail.distance %>">
+      </div>
+
+      <!-- Label and input for difficulty -->
+      <div class="form-group">
+        <label for="difficulty" class="control-label">
+          Difficulty
+        </label>
+
+        <input type="text" id="difficulty" name="difficulty" placeholder="Difficulty" class="form-control" value="<%= @hiking_trail.difficulty %>">
+      </div>
+
+      <!-- Label and input for park_id -->
+      <div class="form-group">
+        <label for="park_id" class="control-label">
+          Park
+        </label>
+
+        <input type="text" id="park_id" name="park_id" placeholder="Park" class="form-control" value="<%= @hiking_trail.park_id %>">
+      </div>
+
+      <!-- Label and input for review_id -->
+      <div class="form-group">
+        <label for="review_id" class="control-label">
+          Review
+        </label>
+
+        <input type="text" id="review_id" name="review_id" placeholder="Review" class="form-control" value="<%= @hiking_trail.review_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Hiking Trail
+      </button>
+      or
+      <a href="/hiking_trails/<%= @hiking_trail.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
