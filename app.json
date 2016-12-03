@@ -1,0 +1,1 @@
+{"name":"Hiking and Camping App","repository":"https://github.com/katieboran/hiking_and_camping_app","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
