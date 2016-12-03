@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Hiking Review #<%= @hiking_review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Review content</dt>
+      <dd><%= @hiking_review.review_content %></dd>
+
+      <dt>User</dt>
+      <dd><%= @hiking_review.user_id %></dd>
+
+      <dt>Star rating</dt>
+      <dd><%= @hiking_review.star_rating %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/hiking_reviews" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/hiking_reviews/<%= @hiking_review.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_hiking_review/<%= @hiking_review.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
