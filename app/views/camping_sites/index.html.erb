@@ -18,7 +18,7 @@
       <% @camping_sites.each do |camping_site| %>
       <tr>
         <td><%= camping_site.camping_review.review_content %></td>
-        <td><%= camping_site.review_id %></td>
+        <td><%= camping_site.park.state_id %></td>
         <td><%= camping_site.park_id %></td>
         <td>
           <a href="/camping_sites/<%= camping_site.id %>" class="btn btn-primary">Show</a>
