@@ -17,7 +17,7 @@
 
       <% @camping_sites.each do |camping_site| %>
       <tr>
-        <td><%= camping_site.capacity %></td>
+        <td><%= camping_site.camping_review.review_content %></td>
         <td><%= camping_site.review_id %></td>
         <td><%= camping_site.park_id %></td>
         <td>
