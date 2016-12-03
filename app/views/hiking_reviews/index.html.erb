@@ -18,7 +18,7 @@
       <% @hiking_reviews.each do |hiking_review| %>
       <tr>
         <td><%= hiking_review.review_content %></td>
-        <td><%= hiking_review.user_id %></td>
+        <td><%= hiking_review.user.email %></td>
         <td><%= hiking_review.star_rating %></td>
         <td>
           <a href="/hiking_reviews/<%= hiking_review.id %>" class="btn btn-primary">Show</a>
