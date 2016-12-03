@@ -24,7 +24,7 @@
           Capacity
         </label>
 
-        <input type="text" id="capacity" name="capacity" placeholder="Capacity" class="form-control" value="<%= @camping_site.capacity %>">
+        <%= select_tag(:capacity, options_from_collection_for_select(CampingReview.all, :id, :review_content, @camping_site.capacity), :class => "form-control") %>
       </div>
 
       <!-- Label and input for review_id -->
