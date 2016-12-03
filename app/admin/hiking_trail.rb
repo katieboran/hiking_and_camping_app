@@ -1,5 +1,7 @@
 ActiveAdmin.register HikingTrail do
 
+ permit_params :address, :distance, :difficulty, :park_id, :review_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
