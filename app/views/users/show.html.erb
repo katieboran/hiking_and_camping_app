@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many camping_reviews -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Camping_reviews
+      </li>
+
+      <% @user.camping_reviews.each do |camping_review| %>
+        <li class="list-group-item">
+          <a href="/camping_reviews/<%= camping_review.id %>">
+            <%= camping_review.review_content %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/camping_reviews/<%= camping_review.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/camping_reviews/<%= camping_review.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_camping_review/<%= camping_review.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many hiking_reviews -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Hiking_reviews
+      </li>
+
+      <% @user.hiking_reviews.each do |hiking_review| %>
+        <li class="list-group-item">
+          <a href="/hiking_reviews/<%= hiking_review.id %>">
+            <%= hiking_review.review_content %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/hiking_reviews/<%= hiking_review.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/hiking_reviews/<%= hiking_review.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_hiking_review/<%= hiking_review.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

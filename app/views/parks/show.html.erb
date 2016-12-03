@@ -35,3 +35,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Park has many hiking_trails -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Hiking_trails
+      </li>
+
+      <% @park.hiking_trails.each do |hiking_trail| %>
+        <li class="list-group-item">
+          <a href="/hiking_trails/<%= hiking_trail.id %>">
+            <%= hiking_trail.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/hiking_trails/<%= hiking_trail.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/hiking_trails/<%= hiking_trail.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_hiking_trail/<%= hiking_trail.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Park has many camping_sites -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Camping_sites
+      </li>
+
+      <% @park.camping_sites.each do |camping_site| %>
+        <li class="list-group-item">
+          <a href="/camping_sites/<%= camping_site.id %>">
+            <%= camping_site.park_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/camping_sites/<%= camping_site.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/camping_sites/<%= camping_site.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_camping_site/<%= camping_site.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
