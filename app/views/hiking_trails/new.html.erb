@@ -51,7 +51,7 @@
           Park
         </label>
 
-        <input type="text" id="park_id" name="park_id" placeholder="Park" class="form-control" value="<%= @hiking_trail.park_id %>">
+        <%= select_tag(:park_id, options_from_collection_for_select(Park.all, :id, :state_id, @hiking_trail.park_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for review_id -->
