@@ -22,7 +22,7 @@
         <td><%= park.state.created_at %></td>
         <td><%= park.address %></td>
         <td><%= park.dates_of_operation %></td>
-        <td><%= park.image %></td>
+        <td><img src='<%= park.image %>' class='img-responsive'></td>
         <td><%= park.activities %></td>
         <td>
           <a href="/parks/<%= park.id %>" class="btn btn-primary">Show</a>
