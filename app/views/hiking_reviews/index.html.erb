@@ -22,8 +22,11 @@
         <td><%= hiking_review.star_rating %></td>
         <td>
           <a href="/hiking_reviews/<%= hiking_review.id %>" class="btn btn-primary">Show</a>
-          <a href="/hiking_reviews/<%= hiking_review.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_hiking_review/<%= hiking_review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == hiking_review.user %>
+            <a href="/hiking_reviews/<%= hiking_review.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_hiking_review/<%= hiking_review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
