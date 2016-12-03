@@ -1,6 +1,11 @@
 class ParksController < ApplicationController
   def index
     @parks = Park.all
+    @location_hash = Gmaps4rails.build_markers(@parks.where.not(:address_latitude => nil)) do |park, marker|
+      marker.lat park.address_latitude
+      marker.lng park.address_longitude
+      marker.infowindow "<h5><a href='/parks/#{park.id}'>#{park.created_at}</a></h5><small>#{park.address_formatted_address}</small>"
+    end
 
     render("parks/index.html.erb")
   end

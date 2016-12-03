@@ -1,6 +1,11 @@
 class HikingTrailsController < ApplicationController
   def index
     @hiking_trails = HikingTrail.all
+    @location_hash = Gmaps4rails.build_markers(@hiking_trails.where.not(:address_latitude => nil)) do |hiking_trail, marker|
+      marker.lat hiking_trail.address_latitude
+      marker.lng hiking_trail.address_longitude
+      marker.infowindow "<h5><a href='/hiking_trails/#{hiking_trail.id}'>#{hiking_trail.created_at}</a></h5><small>#{hiking_trail.address_formatted_address}</small>"
+    end
 
     render("hiking_trails/index.html.erb")
   end
