@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Parks
+    <a href="/parks/new" class="btn btn-lg btn-success">New Park</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>State</th>
+        <th>Address</th>
+        <th>Dates of operation</th>
+        <th>Image</th>
+        <th>Activities</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @parks.each do |park| %>
+      <tr>
+        <td><%= park.state_id %></td>
+        <td><%= park.address %></td>
+        <td><%= park.dates_of_operation %></td>
+        <td><%= park.image %></td>
+        <td><%= park.activities %></td>
+        <td>
+          <a href="/parks/<%= park.id %>" class="btn btn-primary">Show</a>
+          <a href="/parks/<%= park.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_park/<%= park.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

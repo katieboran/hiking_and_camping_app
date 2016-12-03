@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Park #<%= @park.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>State</dt>
+      <dd><%= @park.state_id %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @park.address %></dd>
+
+      <dt>Dates of operation</dt>
+      <dd><%= @park.dates_of_operation %></dd>
+
+      <dt>Image</dt>
+      <dd><%= @park.image %></dd>
+
+      <dt>Activities</dt>
+      <dd><%= @park.activities %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/parks" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/parks/<%= @park.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_park/<%= @park.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

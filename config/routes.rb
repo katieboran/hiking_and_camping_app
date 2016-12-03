@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Park resource:
+  # CREATE
+  get "/parks/new", :controller => "parks", :action => "new"
+  post "/create_park", :controller => "parks", :action => "create"
+
+  # READ
+  get "/parks", :controller => "parks", :action => "index"
+  get "/parks/:id", :controller => "parks", :action => "show"
+
+  # UPDATE
+  get "/parks/:id/edit", :controller => "parks", :action => "edit"
+  post "/update_park/:id", :controller => "parks", :action => "update"
+
+  # DELETE
+  get "/delete_park/:id", :controller => "parks", :action => "destroy"
+  #------------------------------
+
   # Routes for the Hiking_review resource:
   # CREATE
   get "/hiking_reviews/new", :controller => "hiking_reviews", :action => "new"
