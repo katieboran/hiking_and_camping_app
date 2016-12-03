@@ -60,7 +60,7 @@
           Review
         </label>
 
-        <input type="text" id="review_id" name="review_id" placeholder="Review" class="form-control" value="<%= @hiking_trail.review_id %>">
+        <%= select_tag(:review_id, options_from_collection_for_select(HikingReview.all, :id, :review_content, @hiking_trail.review_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
