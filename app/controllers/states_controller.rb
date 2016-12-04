@@ -22,6 +22,7 @@ class StatesController < ApplicationController
   def create
     @state = State.new
 
+    @state.name = params[:name]
 
     save_status = @state.save
 
@@ -48,6 +49,7 @@ class StatesController < ApplicationController
   def update
     @state = State.find(params[:id])
 
+    @state.name = params[:name]
 
     save_status = @state.save
 
