@@ -9,7 +9,7 @@
       <dd>
         <% if @park.state.present? %>
           <a href="/states/<%= @park.state_id %>">
-            <%= @park.state.created_at %>
+            <%= @park.state.name %>
           </a>
         <% end %>
       </dd>

@@ -24,7 +24,7 @@
           State
         </label>
 
-        <%= select_tag(:state_id, options_from_collection_for_select(State.all, :id, :created_at, @park.state_id), :class => "form-control") %>
+        <%= select_tag(:state_id, options_from_collection_for_select(State.all, :id, :name, @park.state_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for address -->
